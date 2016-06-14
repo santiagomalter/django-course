@@ -10,7 +10,7 @@ def products(request):
     data['products'] = Product.objects.all()
     return render(request, 'app/products.html', context = data)
 
-def process_ipn(request):
+def ipn(request):
     response = request.POST
 
     response['cmd'] = '_notify-validate'
