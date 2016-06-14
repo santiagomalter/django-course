@@ -1,3 +1,4 @@
-Django==1.9.7
-requests==2.10.0
-dj-database-url==0.4.1
+Django==1.9.7 # Core Django
+requests==2.10.0 # Easy HTTP requests
+dj-database-url==0.4.1 # Parser for Postgres URL from Heroku
+psycopg2==2.6.1 # Driver for Postgres
