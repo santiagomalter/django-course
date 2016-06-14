@@ -9,3 +9,4 @@ class Product(models.Model):
 class Order(models.Model):
     product = models.ForeignKey('app.Product')
     status = models.CharField(max_length=10)
+    created = models.DateTimeField(auto_now_add=True)
