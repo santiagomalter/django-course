@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from models import Product
 import requests
+from django.views.decorators.csrf import csrf_exempt
 
 def home(request):
     return render(request, 'app/home.html', context = {})
@@ -10,6 +11,7 @@ def products(request):
     data['products'] = Product.objects.all()
     return render(request, 'app/products.html', context = data)
 
+@csrf_exempt
 def ipn(request):
     response = request.POST
 
