@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^products$', views.products, name="products"),
 
     # For Paypal
-    url(r'^ipn$', views.products, name="ipn"),
+    url(r'^ipn$', views.ipn, name="ipn"),
 ]
