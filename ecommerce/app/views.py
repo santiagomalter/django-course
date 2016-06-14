@@ -18,18 +18,17 @@ def ipn(request):
     """
     response = request.POST.dict()
 
-    #print response
-
+    # Append parameter to ask validation from PayPal
     response['cmd'] = '_notify-validate'
 
+    # Repost for validation
     request = requests.post('https://www.sandbox.paypal.com/cgi-bin/webscr', response)
 
-    #print request.text
-
+    # Check validity
     if request.text == "VERIFIED":
         print 'Transaction is verified by PayPal'
 
-        # Create order in Django
+        # Create order in Database
         Order.objects.create(product=Product.objects.get(pk=response['item_number'], status="paid"))
 
     return HttpResponse('ok', status=200)
