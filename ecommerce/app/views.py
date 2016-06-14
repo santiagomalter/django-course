@@ -26,4 +26,4 @@ def ipn(request):
     if request.text == "VERIFIED":
         print 'Transaction is verified by PayPal'
 
-    return HttpResponse('', status_code=200)
+    return HttpResponse('ok', status=200)
