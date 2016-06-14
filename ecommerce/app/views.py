@@ -13,11 +13,15 @@ def products(request):
 
 @csrf_exempt
 def ipn(request):
-    response = request.POST
+    response = request.POST.dict()
+
+    print response
 
     response['cmd'] = '_notify-validate'
 
     request = requests.post('https://www.sandbox.paypal.com/cgi-bin/webscr', response)
+
+    print request.text
 
     if request.text == "VERIFIED":
         print 'Transaction is verified by PayPal'
