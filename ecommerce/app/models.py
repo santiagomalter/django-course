@@ -13,5 +13,6 @@ class Order(models.Model):
     product = models.ForeignKey('app.Product')
     status = models.CharField(max_length=10)
     created = models.DateTimeField(auto_now_add=True)
-
-    return self.product.name
+    
+    def __unicode__(self):
+        return self.product.name
